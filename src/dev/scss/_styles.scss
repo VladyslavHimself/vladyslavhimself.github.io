@@ -1,0 +1,176 @@
+*::selection {
+    background-color: orange ;
+    opacity: .3;
+    color: #000;
+    
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: $background;
+    animation: fadeout 1s ease;
+}
+
+.wrapper {
+    width: 100%;
+}
+.welcome {
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__figure {
+        width: 450px;
+        height: 450px;
+        background-color: $poligrey;
+        border-radius: 100%;
+        position: absolute; 
+        z-index: 0;
+    }
+    &__text {
+        display: inline-block;
+
+        text-align: center;
+        z-index: 1;
+
+        font-style: normal;
+        font-weight: normal;
+        font-size: .8rem;
+        line-height: 100%;
+        letter-spacing: -0.02em;
+        transition: .3s ease;
+
+        color: $standDark;
+
+    }
+}
+
+.scene {
+    position: absolute;
+    width: 0px;
+    height: 100vh;
+    background-color: #000;
+    transition: 1s ease;
+}
+
+// introduce myself part
+
+.introduceMyself {
+    position: relative;
+    margin: 10px;
+    @include fCentered;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    &__container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+.heading {
+
+}
+
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__header {
+        font-size: 1rem;
+    }
+    &__description {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 124.5%;
+        letter-spacing: 0.005em;
+        p {
+            text-align: center;
+        }
+    }
+}
+
+
+.photo {
+    position: relative;
+    margin: 0 40px;
+    box-shadow: 0px 0px 0px 0px #333;
+    animation: shadowOutset 2s ease forwards;
+    
+    img {
+        width: 473px;
+        height: 611px;
+        box-shadow: 0px 0px 0px 0px orange;
+        // rgba(0,0,0,0.75);
+        animation: shadowInset 2s ease forwards;
+    }
+}
+
+
+.filter {
+    left: 0%;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    &__block {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        animation: strelka 5s ease forwards;
+        opacity: .9;
+
+        &:nth-child(2) {
+
+            background-color: #ccc;
+            animation: strelka 4s ease forwards;
+        }
+
+        &:nth-child(3) {
+            background-color: #333;
+            animation: strelka 3s ease forwards;
+        }
+    }
+
+    
+}
+
+a {
+
+    text-decoration: none;
+    .button {
+        margin: 10px;
+        width: 250px;
+        height: 70px;
+        background-color: #333;
+        color: #fff;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+}
+
+.footing {
+    a {
+        text-decoration: none;
+        color: #ccc;
+        
+    }
+}
