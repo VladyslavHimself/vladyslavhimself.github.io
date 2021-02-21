@@ -24,14 +24,23 @@
     from {
         box-shadow: 0px 0px 0px 0px #000;
     } to {
-        box-shadow: 20px 20px 0px 0px orange;
+        box-shadow: 20px 20px 0px 0px $complimentary;
     }
 }
 
 @keyframes shadowOutset {
     from {
-        box-shadow: 0px 0px 0px 0px orange;
+        box-shadow: 0px 0px 0px 0px $complimentary;
     } to {
         box-shadow: -20px -20px 0px 0px #333;
+    }
+}
+
+@keyframes progress {
+    from {
+        opacity: 0;
+        width: 0;
+    } to {
+
     }
 }

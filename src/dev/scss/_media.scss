@@ -6,6 +6,35 @@
     }
 }
 
+@media(max-width: 768px) {
+    .bar {
+        &__text {
+            text-align: center;
+        }
+    }
+}
+@media(max-width: 655px) {
+    .information, .experience {
+        min-width: 100%;
+    }
+    .skills {
+        position: relative;
+        flex-direction: column;
+    }
+    .carousel {
+        width: 200px !important;
+    }
+    .experience {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+
+
+    }
+}
 @media(max-width: 560px) {
     .photo {
         img {

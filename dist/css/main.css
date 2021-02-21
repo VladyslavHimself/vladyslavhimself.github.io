@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 *::selection {
-  background-color: orange;
+  background-color: #F3A900;
   opacity: 0.3;
   color: #000;
 }
@@ -9,6 +9,17 @@ body {
   font-family: "Montserrat", sans-serif;
   background: #f4f4f4;
   animation: fadeout 1s ease;
+}
+
+.hovers {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 0%;
+  height: 100vh;
+  background-color: #ffa500;
+  transition: 1s ease;
+  z-index: 9999;
 }
 
 .wrapper {
@@ -52,8 +63,9 @@ body {
 }
 
 .introduceMyself {
+  transition: 2s ease;
+  opacity: 0;
   position: relative;
-  margin: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +96,7 @@ body {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  line-height: 124.5%;
+  line-height: 1.75;
   letter-spacing: 0.005em;
 }
 .content__description p {
@@ -100,7 +112,7 @@ body {
 .photo img {
   width: 473px;
   height: 611px;
-  box-shadow: 0px 0px 0px 0px orange;
+  box-shadow: 0px 0px 0px 0px #F3A900;
   animation: shadowInset 2s ease forwards;
 }
 
@@ -145,13 +157,146 @@ a .button {
 
 .footing a {
   text-decoration: none;
-  color: #ccc;
+  color: #000;
+  opacity: 0.5;
+  transition: 0.3s ease;
+}
+.footing a:hover {
+  opacity: 1;
+}
+
+.skills {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+.skills .footing {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.information {
+  background-color: #f4f4f4;
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.information__title {
+  text-align: center;
+}
+.information__heading {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.information__description {
+  opacity: 0.7;
+  font-size: 20px;
+}
+
+.carousel {
+  margin: 50px 0;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+.carousel__inner {
+  text-align: center;
+}
+.carousel__item {
+  margin: 5px 0;
+  transition: 0.2s ease-out;
+}
+
+.current {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.experience {
+  width: 30%;
+  background-color: #333;
+  color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.experience__wrap {
+  width: 400px;
+}
+.experience__title {
+  margin-bottom: 30px;
+  font-size: 28px;
+  text-align: center;
+}
+.bar {
+  padding: 0px 25px;
+  margin: 20px 0;
+}
+.bar__text {
+  margin: 5px;
+}
+.bar .progress {
+  background-color: #444;
+  border-radius: 100px;
+  height: 20px;
+  min-width: 100%;
+  box-shadow: -3px 3px 20px 4px #222;
+}
+.bar .progress__data {
+  border-radius: inherit;
+  height: 100%;
+  width: 50%;
+  font-size: 1rem;
+  background: linear-gradient(to left, #F2709C, #FF9472);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 10px;
+}
+
+.animated {
+  animation: progress 1.2s ease;
 }
 
 @media (max-width: 1100px) {
   .introduceMyself__container {
     flex-direction: column-reverse;
     margin: 100px 0px;
+  }
+}
+@media (max-width: 768px) {
+  .bar__text {
+    text-align: center;
+  }
+}
+@media (max-width: 655px) {
+  .information, .experience {
+    min-width: 100%;
+  }
+
+  .skills {
+    position: relative;
+    flex-direction: column;
+  }
+
+  .carousel {
+    width: 200px !important;
+  }
+
+  .experience {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
   }
 }
 @media (max-width: 560px) {
@@ -261,15 +406,21 @@ a .button {
     box-shadow: 0px 0px 0px 0px #000;
   }
   to {
-    box-shadow: 20px 20px 0px 0px orange;
+    box-shadow: 20px 20px 0px 0px #F3A900;
   }
 }
 @keyframes shadowOutset {
   from {
-    box-shadow: 0px 0px 0px 0px orange;
+    box-shadow: 0px 0px 0px 0px #F3A900;
   }
   to {
     box-shadow: -20px -20px 0px 0px #333;
+  }
+}
+@keyframes progress {
+  from {
+    opacity: 0;
+    width: 0;
   }
 }
 /*# sourceMappingURL=main.css.map */

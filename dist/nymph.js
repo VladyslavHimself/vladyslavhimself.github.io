@@ -1,14 +1,28 @@
  // declare variables for introduction
-const text = document.querySelector('.welcome__text'),
+const   text = document.querySelector('.welcome__text'),
+        textInner = document.querySelector('.welcome__text h1'),
         figure = document.querySelector('.welcome__figure'),
         scene = document.querySelector('.scene'),
-        introduceWrapper = document.querySelector('.wrapper'),
+        intro = document.querySelector('.wrapper'),
         introduceMyselfWrapper = document.querySelector('.introduceMyself'),
-        textInner = document.querySelector('.welcome__text h1');
+        skillsWrapper = document.querySelector('.skills'),
+        photo = document.querySelector('.photo img');
 
-// declare vars for Part I
 
-const WCUDBtn = document.querySelector('a .button');
+const WCUDBtn = document.querySelector('#toSkillsBtn');
+
+const skillsNamesBE = ['Node.js', 'Express.js', 'MongoDB, PostgreSQL', 'Firebase', 'REST','Docker'],
+      skillsProgressBE = ['70%', '90%', '50%', '65%', '70%', '50%'],
+      skillsHintsBE = ['Normal', 'Good', 'Learning', 'Normal', 'Good', 'Learning'];
+
+const skillsNamesFE = ['JavaScript', 'React/Redux', 'Next.js', 'TypeScript', 'HTML/CSS (include preprocessors)', 'OWASP, CORS, HTTPS, CSP'],
+      skillsProgressFE = ['90%', '85%', '75%', '80%', '94%', '80%'],
+      skillsHintsFE = ['Good', 'Good', 'In Progress', 'Good', 'Beautifull', 'Still good'];
+
+const skillsNamesUX = ['Prototyping & Testing', 'Visual Design, Mockups, UI Elements', 'Research, Wireframing', 'Typography', 'Figma, Zeplin, Sketch', 'Photoshop'],
+      skillsProgressUX = ['70%', '65%', '80%', '70%', '90%', '93%'],
+      skillsHintsUX = ['Normal', 'Learning', 'Good', 'Normal', 'Good', 'Good'];
+// NOTE Functions
 
 
 function changeFigureColor(color) {
@@ -24,7 +38,7 @@ function changeText(words, timing = 1500, fade = 400) {
                 textInner.innerHTML = words;
                 setTimeout(() => {
                     text.style.opacity = '1';
-                    resolve('done');    
+                    resolve('done');
                 }, fade);
             }, fade);
         }, timing);
@@ -36,7 +50,6 @@ function resizeScene(x) {
 }
 
 async function introduce() {
-    
     await changeText('My name is Vlad & I\'m ');
     resizeScene(50);
     await changeText('Front-End Developer', 1500, 400);
@@ -53,9 +66,9 @@ async function introduce() {
         setTimeout(() => {
             text.style.opacity = '0';
             setTimeout(() => {
-                introduceWrapper.remove();
+                intro.remove();
                 setTimeout(() => {
-                    introduceMyself();
+                    introduceScene(introduceMyselfWrapper);
                 }, 1000);
             }, 500);
         }, 1000);
@@ -63,45 +76,176 @@ async function introduce() {
 
 }
 
-function introduceMyself() {
-    introduceMyselfWrapper.style.display = '';
+function introduceScene(scene) {
+    scene.style.display = '';
     setTimeout(() => {
-        introduceMyselfWrapper.style.opacity = '1';    
+        scene.style.opacity = '1';    
     }, 100);
     
 }
 
+function hideSection(section) {
+    section.style.transition = '2s ease'
+    section.style.opacity = '0';
+    section.style.display = 'none';
+}
+
+
 
 // test functions
+
 function disableFirstSection() {
-    introduceWrapper.remove();
+    intro.remove();
+}
+
+function enableSecondSection() {
     introduceMyselfWrapper.style.display = '';
     introduceMyselfWrapper.style.opacity = '1'; 
+}
+
+function all() {
+    disableFirstSection();
+    enableSecondSection();
 }
 
 function disbaleSecondSection() {
     introduceMyselfWrapper.remove();
 }
 
-
-
-introduceMyselfWrapper.style.transition = '2s ease'
-introduceMyselfWrapper.style.opacity = '0';
-introduceMyselfWrapper.style.display = 'none';
-
+function disableThirdSection() {
+    skillsWrapper.style.display = 'none';
+}
 
 // tests
+    introduceMyselfWrapper.style.display = 'flex';
+    introduceMyselfWrapper.style.opacity = '1';
 
-// disableFirstSection();
-// disbaleSecondSection();
+// all();
+
+// main functions
+
+// hideSection(intro)
+// skillsWrapper.style.display = 'flex';
+
+hideSection(introduceMyselfWrapper);
+hideSection(skillsWrapper);
 
 
-// main functions 
 introduce();
 
+
+// TODO Fade animations function
+
+function hidePage(section, time) {
+    
+    return new Promise(resolve => {
+        section.style.transition = `${time}s ease`;
+        section.style.opacity = '0';
+            setTimeout(() => {
+                section.style.display = 'none';
+                resolve('done')
+            }, 500);
+        
+    });
+
+}
+
+function showPage(section) {
+    return new Promise(resolve => {
+        section.style.display = 'flex';
+        setTimeout(() => {
+            section.style.opacity = '1';
+            resolve('done');
+        }, 50);
+    });
+}
+
+function animateScene(isStart, delay) {
+    return new Promise(resolve => {
+        if(isStart) {
+            document.querySelector('.hovers').style.width = '100%';
+            setTimeout(() => {
+                resolve('done');
+            }, delay);
+
+        } else {
+            document.querySelector('.hovers').style.width = '0%';
+            setTimeout(() => {
+                resolve('done');
+            }, delay);
+        }
+    });
+
+
+}
+
+async function changePage() {
+    await hidePage(introduceMyselfWrapper, '.5');
+    await animateScene(true, 1500);
+    await showPage(skillsWrapper, '.5');
+    await animateScene(false, 1500);
+}
+
+function changeCarousel(items, e) {
+    items.forEach(elem => {
+                
+        if (elem.classList.contains('current') && !(elem.innerHTML === e.target.innerHTML)) {
+            elem.classList.remove('current');
+        } 
+        
+        if (elem.innerHTML == e.target.innerHTML && !elem.classList.contains('current')) {
+            elem.classList.add('current');
+        }
+    });
+}
+
+function changeSkills(names, progress, hints) {
+    
+    let bar = document.querySelectorAll('.bar__text'),
+        pData = document.querySelectorAll('.progress__data');
+
+        // animation
+        pData.forEach(element => {
+            element.classList.remove('animated')
+            setTimeout(() => {
+                element.classList.add('animated')    
+            }, 100);
+            
+        });
+
+        // changer
+    bar.forEach((element, i) => {
+        element.innerHTML = names[i];
+    });
+    pData.forEach((element,i) => {
+        element.style.width = progress[i];
+        element.innerHTML = hints[i]
+    });
+
+    
+}
+
 WCUDBtn.addEventListener('click', () => {
-    introduceMyselfWrapper.style.transition = '.3s ease';
-    introduceMyselfWrapper.style.opacity = '0';
+       changePage();
 });
 
+let carouselContent = document.querySelector('.carousel__inner');
 
+carouselContent.addEventListener('click', (e) => {
+
+    let items = document.querySelectorAll('.carousel__item');
+
+    if (e.target.innerHTML == 'Front-end Dev') {
+        changeCarousel(items, e);
+        changeSkills(skillsNamesFE, skillsProgressFE, skillsHintsFE) 
+
+    } else if (e.target.innerHTML == 'UX/UI Designer') {
+        changeCarousel(items, e);
+        changeSkills(skillsNamesUX, skillsProgressUX, skillsHintsUX) 
+
+    } else if (e.target.innerHTML == 'Back-end Dev') {
+        changeCarousel(items, e);
+        changeSkills(skillsNamesBE, skillsProgressBE, skillsHintsBE)    
+    }
+
+});
