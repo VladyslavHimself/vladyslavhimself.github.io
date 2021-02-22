@@ -126,15 +126,12 @@ function disableThirdSection() {
 
 // hideSection(intro)
 // skillsWrapper.style.display = 'flex';
-
 hideSection(introduceMyselfWrapper);
 hideSection(skillsWrapper);
 
 
 introduce();
 
-
-// TODO Fade animations function
 
 function hidePage(section, time) {
     
