@@ -9,6 +9,14 @@
   </head>
   <body>
     <div class="hovers"></div>
+    <div class="navigation">
+      <div class="nav">
+        <div class="nav__item aboutt">About Me</div>
+        <div class="nav__item skillss">Skills</div>
+        <div class="nav__item workss">Works</div>
+        <div class="nav__item contactss">Contacts</div>
+      </div>
+    </div>
     <div class="wrapper">
       <div class="scene"></div>
       <div class="welcome">
@@ -42,7 +50,7 @@
           </div>
         </div>
       </div>
-      <div class="footing"><a href="#">Skip</a></div>
+      <div class="footing"><a href="#" id="toNav">Skip</a></div>
     </div>
     <!-- skills section-->
     <div class="skills">
@@ -57,11 +65,11 @@
             <div class="carousel__item current">Front-end Dev</div>
             <div class="carousel__item">Back-end Dev</div>
           </div>
-        </div><a href="#">
+        </div><a href="#" id="toWorks">
           <div class="button">
             <p>I want to see your works</p>
           </div></a>
-        <div class="footing"><a href="#">Skip,  I want to go myself</a></div>
+        <div class="footing"><a href="#" id="toNav">Skip, I want to go myself</a></div>
         <div class="slideDown"><img src="assets/down.svg" alt="" srcset=""/></div>
       </div>
       <div class="experience">
@@ -108,6 +116,33 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- Works section-->
+    <div class="works">
+      <div class="container">
+        <div class="heading">Part IV.  Works, that I’d like to share</div>
+        <div class="projects"><a href="#" target="_blank">
+            <div class="projects__item"><img src="https://picsum.photos/seed/12/300/495" alt="" srcset=""/></div></a><a href="#" target="_blank">
+            <div class="projects__item"><img src="https://picsum.photos/seed/13/300/495" alt="" srcset=""/></div></a><a href="#" target="_blank">
+            <div class="projects__item"><img src="https://picsum.photos/seed/14/300/495" alt="" srcset=""/></div></a></div><a href="#">
+          <div class="button light" id="toContacts">
+            <p>Let’s contact!</p>
+          </div></a>
+        <div class="footing"><a href="#" id="toNav">Skip</a></div>
+      </div>
+    </div>
+    <div class="contact">
+      <div class="form">
+        <div class="hline">
+          <div class="hline__text">Get in Touch</div>
+          <div class="hline__line"></div>
+        </div>
+        <div class="contacts"><a href="mailto:vladyslavhimself@gmail.com" target="_blank">
+            <div class="contacts__text">vladyslavhimself@gmail.com</div></a><a href="https://t.me/vladyslavhimself" target="_blank">
+            <div class="contacts__text">Telegram</div></a><a href="https://github.com/VladyslavHimself" target="_blank">
+            <div class="contacts__text">Github</div></a></div>
+        <div class="footing lighter"><a href="#" id="toNav">Skip</a></div>
       </div>
     </div>
     <script src="nymph.js"></script>

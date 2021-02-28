@@ -6,10 +6,15 @@ const   text = document.querySelector('.welcome__text'),
         intro = document.querySelector('.wrapper'),
         introduceMyselfWrapper = document.querySelector('.introduceMyself'),
         skillsWrapper = document.querySelector('.skills'),
-        photo = document.querySelector('.photo img');
+        workSection = document.querySelector('.works'),
+        contactSection = document.querySelector('.contact'),
+        photo = document.querySelector('.photo img'),
+        navigation = document.querySelector('.navigation');
 
-
-const WCUDBtn = document.querySelector('#toSkillsBtn');
+const WCUDBtn = document.querySelector('#toSkillsBtn'),
+      Wbtn = document.querySelector('#toWorks'),
+      CNTCBtn = document.querySelector('#toContacts'),
+      navBtn = document.querySelectorAll('#toNav');
 
 const skillsNamesBE = ['Node.js', 'Express.js', 'MongoDB, PostgreSQL', 'Firebase', 'REST','Docker'],
       skillsProgressBE = ['70%', '90%', '50%', '65%', '70%', '50%'],
@@ -22,9 +27,11 @@ const skillsNamesFE = ['JavaScript', 'React/Redux', 'Next.js', 'TypeScript', 'HT
 const skillsNamesUX = ['Prototyping & Testing', 'Visual Design, Mockups, UI Elements', 'Research, Wireframing', 'Typography', 'Figma, Zeplin, Sketch', 'Photoshop'],
       skillsProgressUX = ['70%', '65%', '80%', '70%', '90%', '93%'],
       skillsHintsUX = ['Normal', 'Learning', 'Good', 'Normal', 'Good', 'Good'];
-// NOTE Functions
 
 
+let marker = 1;
+
+      // NOTE Functions
 function changeFigureColor(color) {
     figure.style.transition = '1s ease';
     figure.style.background = color;
@@ -117,19 +124,22 @@ function disableThirdSection() {
 }
 
 // tests
-    introduceMyselfWrapper.style.display = 'flex';
-    introduceMyselfWrapper.style.opacity = '1';
+    // introduceMyselfWrapper.style.display = 'flex';
+    // introduceMyselfWrapper.style.opacity = '1';
 
 // all();
 
 // main functions
+// skillsWrapper.style.display = 'flex';
 
 // hideSection(intro)
-// skillsWrapper.style.display = 'flex';
 hideSection(introduceMyselfWrapper);
 hideSection(skillsWrapper);
+hideSection(workSection);
+hideSection(contactSection);
+// hideSection(navigation);
 
-
+// // introduceMyselfWrapper.style.opacity = '1';
 introduce();
 
 
@@ -176,10 +186,10 @@ function animateScene(isStart, delay) {
 
 }
 
-async function changePage() {
-    await hidePage(introduceMyselfWrapper, '.5');
+async function changePage(from, to) {
+    await hidePage(from, '.5');
     await animateScene(true, 1500);
-    await showPage(skillsWrapper, '.5');
+    await showPage(to, '.5');
     await animateScene(false, 1500);
 }
 
@@ -222,10 +232,32 @@ function changeSkills(names, progress, hints) {
     
 }
 
+// NOTE button listeners
+
 WCUDBtn.addEventListener('click', () => {
-       changePage();
+       changePage(introduceMyselfWrapper, skillsWrapper);
+       marker = 2;
 });
 
+Wbtn.addEventListener('click', () => {
+    changePage(skillsWrapper, workSection);
+    marker = 3;
+});
+
+CNTCBtn.addEventListener('click', () => {
+    changePage(workSection, contactSection);
+    marker = 4;
+});
+
+navBtn.forEach(e => {
+    e.addEventListener('click', () => {
+        navigation.style.transition = '.4s ease';
+        showPage(navigation);
+    });
+});
+
+
+// carousel
 let carouselContent = document.querySelector('.carousel__inner');
 
 carouselContent.addEventListener('click', (e) => {
@@ -234,15 +266,51 @@ carouselContent.addEventListener('click', (e) => {
 
     if (e.target.innerHTML == 'Front-end Dev') {
         changeCarousel(items, e);
-        changeSkills(skillsNamesFE, skillsProgressFE, skillsHintsFE) 
+        changeSkills(skillsNamesFE, skillsProgressFE, skillsHintsFE);
 
     } else if (e.target.innerHTML == 'UX/UI Designer') {
         changeCarousel(items, e);
-        changeSkills(skillsNamesUX, skillsProgressUX, skillsHintsUX) 
+        changeSkills(skillsNamesUX, skillsProgressUX, skillsHintsUX);
 
     } else if (e.target.innerHTML == 'Back-end Dev') {
         changeCarousel(items, e);
-        changeSkills(skillsNamesBE, skillsProgressBE, skillsHintsBE)    
+        changeSkills(skillsNamesBE, skillsProgressBE, skillsHintsBE);    
     }
 
+});
+
+
+function pageObserver(marker) {
+    if (marker == 1) {
+        return introduceMyselfWrapper;
+    } else if (marker == 2) {
+        return skillsWrapper;
+    } else if (marker == 3) {
+        return workSection;
+    } else if (marker == 4) {
+        return contactSection;
+    }
+}
+
+// navigation
+let navbar = document.querySelector('.nav');
+
+navbar.addEventListener('click', e => {
+    if (e.target.classList.contains('aboutt')) {
+        let obs = pageObserver(marker);
+        hideSection(obs);
+        changePage(navigation, introduceMyselfWrapper);
+    } else if (e.target.classList.contains('skillss')) {
+        let obs = pageObserver(marker);
+        hideSection(obs);
+        changePage(navigation, skillsWrapper);
+    } else if (e.target.classList.contains('workss')) {
+        let obs = pageObserver(marker);
+        hideSection(obs);
+        changePage(navigation, workSection);
+    } else if (e.target.classList.contains('contactss')) {
+        let obs = pageObserver(marker);
+        hideSection(obs);
+        changePage(navigation, contactSection);
+    }
 });

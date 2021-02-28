@@ -62,3 +62,29 @@
 
     }
 }
+
+@keyframes hoverEffect {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+@keyframes line {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes dropText {
+    from {
+        opacity: 0;
+        transform: translateY(-200%);
+    }
+
+    to {
+        opacity: 1;
+    }
+}

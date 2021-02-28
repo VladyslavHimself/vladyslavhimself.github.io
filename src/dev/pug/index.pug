@@ -10,6 +10,14 @@ html(lang="en")
 
     body
         .hovers
+
+        .navigation
+            .nav
+                .nav__item.aboutt About Me
+                .nav__item.skillss Skills
+                .nav__item.workss Works
+                .nav__item.contactss Contacts
+
         .wrapper
             .scene
             .welcome
@@ -42,7 +50,7 @@ html(lang="en")
                     
 
             .footing
-                a(href="#") Skip
+                a(href="#")#toNav Skip
 
         // skills section
 
@@ -57,11 +65,11 @@ html(lang="en")
                         .carousel__item.current Front-end Dev
                         .carousel__item Back-end Dev
 
-                a(href="#")
+                a(href="#")#toWorks
                     .button
                         p I want to see your works
                 .footing
-                    a(href="#") Skip,  I want to go myself
+                    a(href="#")#toNav Skip, I want to go myself
 
                 .slideDown
                     img(src="assets/down.svg", alt="", srcset="")
@@ -95,6 +103,46 @@ html(lang="en")
                             .bar__text OWASP, CORS, HTTPS, CSP
                             .progress 
                                 .progress__data(style="width: 80%").animated Still good
+
+        // Works section
+
+        .works
+            .container
+                .heading Part IV.  Works, that I’d like to share
+
+                .projects
+                    a(href="#" target="_blank")
+                        .projects__item
+                            img(src="https://picsum.photos/seed/12/300/495", alt="", srcset="")
+                    a(href="#" target="_blank")
+                        .projects__item
+                            img(src="https://picsum.photos/seed/13/300/495", alt="", srcset="")
+                    a(href="#" target="_blank")
+                        .projects__item
+                            img(src="https://picsum.photos/seed/14/300/495", alt="", srcset="")
+                a(href="#")
+                    .button.light#toContacts
+                        p Let’s contact!
+                
+                .footing
+                    a(href="#")#toNav Skip
+
+        .contact
+            .form
+                .hline
+                    .hline__text Get in Touch
+                    .hline__line
+                
+                .contacts
+                    a(href="mailto:vladyslavhimself@gmail.com" target="_blank")
+                        .contacts__text vladyslavhimself@gmail.com
+                    a(href="https://t.me/vladyslavhimself" target="_blank")
+                        .contacts__text Telegram
+                    a(href="https://github.com/VladyslavHimself" target="_blank")
+                        .contacts__text Github
+                
+                .footing.lighter
+                    a(href="#")#toNav Skip
 
         script(src="nymph.js")
         //- script(src="typewriter.js")

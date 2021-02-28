@@ -32,6 +32,8 @@
     .experience {
         min-height: 55vh;
     }
+
+
 }
 @media(max-width: 560px) {
     .photo {
@@ -71,6 +73,33 @@
         
         }
     }
+
+
+    // contacts
+
+    .form {
+        width: 250px;
+    }
+
+    .hline {
+
+        width: inherit;
+        &__text {
+            color: #f4f4f4;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: .9rem;
+            animation: dropText 2s ease;
+        }
+    
+    }
+
+    .contacts {
+        a {
+            font-size: .7rem;
+        }
+    }
+
 }
 
 @media(max-width: 500px) {
@@ -100,6 +129,10 @@
         &__figure {
             width: 250px;
             height: 250px;
+        }
+
+        &__text {
+            font-size: .6rem;
         }
     }
 
@@ -133,6 +166,15 @@
             margin: 20px 0 0 0 !important;
         }
     }
+
+    // NOTE works
+
+    .projects {
+        &__item {
+            margin-right: 0;
+        }
+    }
+
 }
 
 @media(max-width: 320px) {
@@ -165,3 +207,6 @@
         }
     }
 }
+
+
+// Works

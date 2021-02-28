@@ -11,17 +11,6 @@ body {
   animation: fadeout 1s ease;
 }
 
-.hovers {
-  top: 0;
-  left: 0;
-  position: absolute;
-  width: 0%;
-  height: 100vh;
-  background-color: #ffa500;
-  transition: 1s ease;
-  z-index: 9999;
-}
-
 .wrapper {
   width: 100%;
 }
@@ -82,6 +71,10 @@ body {
   align-items: center;
 }
 
+.heading {
+  font-weight: 800;
+}
+
 .content {
   display: flex;
   justify-content: center;
@@ -139,30 +132,6 @@ body {
 .filter__block:nth-child(3) {
   background-color: #333;
   animation: strelka 3s ease forwards;
-}
-
-a {
-  text-decoration: none;
-}
-a .button {
-  margin: 10px;
-  width: 250px;
-  height: 70px;
-  background-color: #333;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footing a {
-  text-decoration: none;
-  color: #000;
-  opacity: 0.5;
-  transition: 0.3s ease;
-}
-.footing a:hover {
-  opacity: 1;
 }
 
 .skills {
@@ -275,6 +244,230 @@ a .button {
   padding: 0px 10px;
 }
 
+.works {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.heading {
+  margin-bottom: 40px;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.projects__item {
+  cursor: pointer;
+  position: relative;
+  margin-right: 15px;
+  transition: 0.3s ease;
+}
+.projects__item:hover::after {
+  content: "Click for more info";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f4f4f4;
+  font-size: 1.5rem;
+  letter-spacing: 1.2px;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: hoverEffect 0.5s ease forwards;
+}
+
+.light {
+  margin-top: 40px !important;
+}
+
+.contact {
+  width: 100%;
+  height: 100vh;
+  background-color: #f4f4f4;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact .footing {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-95%, -50%);
+}
+.contact .footing a {
+  color: #fff !important;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+}
+
+.hline {
+  width: inherit;
+}
+.hline__text {
+  color: #f4f4f4;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  animation: dropText 2s ease;
+}
+.hline__line {
+  width: 100%;
+  height: 3px;
+  background-color: #F3A900;
+  border-radius: 5px;
+  animation: line 2.5s ease-out;
+}
+
+.contacts {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.contacts a {
+  text-decoration: none;
+  color: #fff;
+  margin-top: 7px;
+  opacity: 0;
+}
+.contacts a:nth-child(1) {
+  margin-top: 25px;
+}
+.contacts a:nth-child(1) {
+  animation: dropText 1s ease forwards;
+  animation-delay: 1s;
+}
+.contacts a:nth-child(2) {
+  animation: dropText 1s ease forwards;
+  animation-delay: 1.5s;
+}
+.contacts a:nth-child(3) {
+  animation: dropText 1s ease forwards;
+  animation-delay: 2s;
+}
+.contacts__text {
+  letter-spacing: 0.11rem;
+  text-align: right;
+  transition: 0.5s ease;
+}
+.contacts__text:hover {
+  opacity: 0.8;
+  color: #ccc;
+}
+
+.navigation {
+  width: 100%;
+  height: 100vh;
+  background-color: #f4f4f4;
+  z-index: 10;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.nav {
+  width: 500px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.nav__item {
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.nav__item:hover {
+  color: #F3A900;
+}
+.nav__item::after {
+  content: "";
+  width: 200px;
+  height: 1px;
+  background-color: #333;
+  margin-top: 5px;
+  border-radius: 3px;
+}
+
+.hovers {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 0%;
+  height: 100vh;
+  background-color: #ffa500;
+  transition: 1s ease;
+  z-index: 9999;
+}
+
+a {
+  text-decoration: none;
+}
+a .button {
+  margin: 10px;
+  width: 250px;
+  height: 70px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footing a {
+  text-decoration: none;
+  color: #000;
+  opacity: 0.5;
+  transition: 0.3s ease;
+}
+.footing a:hover {
+  opacity: 1;
+}
+
+.light {
+  background-color: #f4f4f4 !important;
+  border: 1px solid #333 !important;
+  color: #333 !important;
+  font-weight: 800 !important;
+  transition: 0.3s ease;
+  letter-spacing: 5px;
+  font-weight: thin;
+}
+.light:hover {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
 .animated {
   animation: progress 1.2s ease;
 }
@@ -334,6 +527,25 @@ a .button {
     font-size: 12px;
     margin: 30px 0 0 0;
   }
+
+  .form {
+    width: 250px;
+  }
+
+  .hline {
+    width: inherit;
+  }
+  .hline__text {
+    color: #f4f4f4;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    animation: dropText 2s ease;
+  }
+
+  .contacts a {
+    font-size: 0.7rem;
+  }
 }
 @media (max-width: 500px) {
   .welcome__figure {
@@ -353,6 +565,9 @@ a .button {
   .welcome__figure {
     width: 250px;
     height: 250px;
+  }
+  .welcome__text {
+    font-size: 0.6rem;
   }
 
   .photo img {
@@ -375,6 +590,10 @@ a .button {
 
   .introduceMyself__container {
     margin: 20px 0 0 0 !important;
+  }
+
+  .projects__item {
+    margin-right: 0;
   }
 }
 @media (max-width: 320px) {
@@ -448,6 +667,29 @@ a .button {
   from {
     opacity: 0;
     width: 0;
+  }
+}
+@keyframes hoverEffect {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes line {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+}
+@keyframes dropText {
+  from {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+  to {
+    opacity: 1;
   }
 }
 /*# sourceMappingURL=main.css.map */
