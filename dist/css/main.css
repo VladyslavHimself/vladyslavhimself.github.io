@@ -187,7 +187,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: default;
 }
 .carousel__inner {
   text-align: center;
@@ -195,6 +194,7 @@ body {
 .carousel__item {
   margin: 5px 0;
   transition: 0.2s ease-out;
+  cursor: pointer;
 }
 
 .current {

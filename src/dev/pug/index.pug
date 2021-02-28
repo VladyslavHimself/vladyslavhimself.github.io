@@ -11,139 +11,23 @@ html(lang="en")
     body
         .hovers
 
-        .navigation
-            .nav
-                .nav__item.aboutt About Me
-                .nav__item.skillss Skills
-                .nav__item.workss Works
-                .nav__item.contactss Contacts
+        // navigation
+        include includes/_navigation.pug
 
-        .wrapper
-            .scene
-            .welcome
-                .welcome__figure
-                .welcome__text
-                    h1 Hello
+
+        // intro
+        include includes/_intro.pug
         
-        .introduceMyself
-            .heading
-                h1 Part I. Introduce myself
-
-            .introduceMyself__container
-                .content
-                    .content__header
-                        h3 Hello, my name is Vladyslav. Nice to meet you!
-
-                    .content__description
-                        p Let me tell something about myself. Now I living in United States, but studying in Ukraine. <br>I was started learn computer science when i was young & it changed my lifestyle <br>to the better way. Now I don’t imagine myself without it.<br> If you have a good idea - I will realize it to reality & help with it. <br>I love startups & develop some my personal projects, so don’t be shy  to ask a help. <br>I think, we can have a good vibe. Enjoy ;)
-
-                    a(href="#")#toSkillsBtn
-                        .button
-                            p What can you do?
-
-                .photo
-                    img(src="assets/pfolio.jpg", alt="", srcset="")
-                    .filter
-                        .filter__block
-                        .filter__block
-                        .filter__block
-                    
-
-            .footing
-                a(href="#")#toNav Skip
+        // About me section
+        include includes/_introduceMyself.pug
 
         // skills section
-
-        .skills
-            .information
-                .information__title
-                    .information__heading Part II. Introduce skills
-                    .information__description I know, that progress bar isn’t so informative, <br> so I do markers for better experience!
-                .carousel
-                    .carousel__inner 
-                        .carousel__item UX/UI Designer
-                        .carousel__item.current Front-end Dev
-                        .carousel__item Back-end Dev
-
-                a(href="#")#toWorks
-                    .button
-                        p I want to see your works
-                .footing
-                    a(href="#")#toNav Skip, I want to go myself
-
-                .slideDown
-                    img(src="assets/down.svg", alt="", srcset="")
-                
-            .experience
-                .experience__wrap
-                    .experience__title
-                        .experience__text Skills
-                    .experience__box
-                        .bar
-                            .bar__text JavaScript
-                            .progress
-                                .progress__data(style="width: 90%").animated Good
-                        .bar
-                            .bar__text React/Redux
-                            .progress
-                                .progress__data(style="width: 85%").animated Good
-                        .bar
-                            .bar__text Next.js
-                            .progress
-                                .progress__data(style="width: 75%").animated In Progress
-                        .bar
-                            .bar__text TypeScript
-                            .progress
-                                .progress__data(style="width: 80%").animated Good
-                        .bar
-                            .bar__text HTML/CSS (include preprocessors)
-                            .progress 
-                                .progress__data(style="width: 94%").animated Beautifull
-                        .bar
-                            .bar__text OWASP, CORS, HTTPS, CSP
-                            .progress 
-                                .progress__data(style="width: 80%").animated Still good
+        include includes/_skills.pug
 
         // Works section
+        include includes/_works.pug
 
-        .works
-            .container
-                .heading Part IV.  Works, that I’d like to share
-
-                .projects
-                    a(href="#" target="_blank")
-                        .projects__item
-                            img(src="https://picsum.photos/seed/12/300/495", alt="", srcset="")
-                    a(href="#" target="_blank")
-                        .projects__item
-                            img(src="https://picsum.photos/seed/13/300/495", alt="", srcset="")
-                    a(href="#" target="_blank")
-                        .projects__item
-                            img(src="https://picsum.photos/seed/14/300/495", alt="", srcset="")
-                a(href="#")
-                    .button.light#toContacts
-                        p Let’s contact!
-                
-                .footing
-                    a(href="#")#toNav Skip
-
-        .contact
-            .form
-                .hline
-                    .hline__text Get in Touch
-                    .hline__line
-                
-                .contacts
-                    a(href="mailto:vladyslavhimself@gmail.com" target="_blank")
-                        .contacts__text vladyslavhimself@gmail.com
-                    a(href="https://t.me/vladyslavhimself" target="_blank")
-                        .contacts__text Telegram
-                    a(href="https://github.com/VladyslavHimself" target="_blank")
-                        .contacts__text Github
-                
-                .footing.lighter
-                    a(href="#")#toNav Skip
+        // Contact section
+        include includes/_contact.pug
 
         script(src="nymph.js")
-        //- script(src="typewriter.js")
-        //- script(src="bundle.js")
