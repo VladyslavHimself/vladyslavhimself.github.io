@@ -209,4 +209,20 @@
 }
 
 
+
+@media(max-height: 775px) {
+
+    .carousel {
+        height: 170px;
+        margin: 0 !important;
+    }
+
+    .slideDown {
+        top: 94%;
+    }
+}
+
 // Works
+
+
+

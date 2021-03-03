@@ -615,6 +615,16 @@ a .button {
     margin: 20px 0 0 0 !important;
   }
 }
+@media (max-height: 775px) {
+  .carousel {
+    height: 170px;
+    margin: 0 !important;
+  }
+
+  .slideDown {
+    top: 94%;
+  }
+}
 @keyframes fadeout {
   0% {
     opacity: 0;
