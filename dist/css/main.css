@@ -450,8 +450,8 @@ a .button:hover {
 }
 a .button:active {
   background-color: #F3A900;
-  width: calc(250px + 25px);
-  height: calc(70px + 10px);
+  width: calc(250px + 10px);
+  height: calc(70px + 5px);
   color: #000;
 }
 
