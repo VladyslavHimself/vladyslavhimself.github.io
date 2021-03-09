@@ -442,6 +442,17 @@ a .button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.3s ease;
+}
+a .button:hover {
+  background-color: #222;
+  color: #fff;
+}
+a .button:active {
+  background-color: #F3A900;
+  width: calc(250px + 25px);
+  height: calc(70px + 10px);
+  color: #000;
 }
 
 .footing a {

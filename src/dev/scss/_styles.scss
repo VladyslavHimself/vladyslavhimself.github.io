@@ -51,10 +51,13 @@ a {
 
     text-decoration: none;
 
+    $btnWidth: 250px;
+    $btnHeight: 70px;
+
     .button {
         margin: 10px;
-        width: 250px;
-        height: 70px;
+        width: $btnWidth;
+        height: $btnHeight;
         background-color: #333;
         color: #fff;
 
@@ -62,8 +65,24 @@ a {
         justify-content: center;
         align-items: center;
         
+        transition: .3s ease;
+        
+        &:hover {
+            background-color: #222;
+            color: #fff;
+        }
+
+
+        &:active {
+            background-color: $complimentary;
+            width: calc(#{$btnWidth} + 25px);
+            height: calc(#{$btnHeight} + 10px);
+            color: #000;
+        }
         
     }
+
+ 
 }
 
 .footing {
