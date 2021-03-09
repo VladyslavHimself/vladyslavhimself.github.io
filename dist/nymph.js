@@ -130,7 +130,7 @@ function disableThirdSection() {
 // all();
 
 // main functions
-skillsWrapper.style.display = 'flex';
+// skillsWrapper.style.display = 'flex';
 
 // hideSection(intro)
 hideSection(introduceMyselfWrapper);
