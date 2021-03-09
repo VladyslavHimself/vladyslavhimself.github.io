@@ -1,4 +1,4 @@
- // declare variables for introduction
+// declare variables for introduction
 const   text = document.querySelector('.welcome__text'),
         textInner = document.querySelector('.welcome__text h1'),
         figure = document.querySelector('.welcome__figure'),
@@ -29,7 +29,7 @@ const skillsNamesUX = ['Prototyping & Testing', 'Visual Design, Mockups, UI Elem
       skillsHintsUX = ['Normal', 'Learning', 'Good', 'Normal', 'Good', 'Good'];
 
 
-let marker = 1;
+      let marker = 1;
 
       // NOTE Functions
 function changeFigureColor(color) {
@@ -130,17 +130,17 @@ function disableThirdSection() {
 // all();
 
 // main functions
-// skillsWrapper.style.display = 'flex';
+skillsWrapper.style.display = 'flex';
 
-// hideSection(intro)
-hideSection(introduceMyselfWrapper);
+hideSection(intro)
+// hideSection(introduceMyselfWrapper);
 hideSection(skillsWrapper);
 hideSection(workSection);
 hideSection(contactSection);
 // hideSection(navigation);
 
-// // introduceMyselfWrapper.style.opacity = '1';
-introduce();
+introduceMyselfWrapper.style.opacity = '1';
+// introduce();
 
 
 function hidePage(section, time) {
@@ -235,18 +235,21 @@ function changeSkills(names, progress, hints) {
 // NOTE button listeners
 
 WCUDBtn.addEventListener('click', () => {
-       changePage(introduceMyselfWrapper, skillsWrapper);
        marker = 2;
+       changePage(introduceMyselfWrapper, skillsWrapper);
+       
 });
 
 Wbtn.addEventListener('click', () => {
-    changePage(skillsWrapper, workSection);
     marker = 3;
+    changePage(skillsWrapper, workSection);
+    
 });
 
 CNTCBtn.addEventListener('click', () => {
-    changePage(workSection, contactSection);
     marker = 4;
+    changePage(workSection, contactSection);
+    
 });
 
 navBtn.forEach(e => {
@@ -257,7 +260,7 @@ navBtn.forEach(e => {
 });
 
 
-// carousel
+// NOTE carousel
 let carouselContent = document.querySelector('.carousel__inner');
 
 carouselContent.addEventListener('click', (e) => {
@@ -292,25 +295,40 @@ function pageObserver(marker) {
     }
 }
 
-// navigation
+// NOTE Navigation
+
+
+
 let navbar = document.querySelector('.nav');
 
 navbar.addEventListener('click', e => {
     if (e.target.classList.contains('aboutt')) {
         let obs = pageObserver(marker);
+        console.log(marker);
         hideSection(obs);
+        
+        marker = 1;
         changePage(navigation, introduceMyselfWrapper);
     } else if (e.target.classList.contains('skillss')) {
         let obs = pageObserver(marker);
+        console.log(marker);
         hideSection(obs);
+
+        marker = 2;
         changePage(navigation, skillsWrapper);
     } else if (e.target.classList.contains('workss')) {
         let obs = pageObserver(marker);
+        console.log(marker);
         hideSection(obs);
+        
+        marker = 3;
         changePage(navigation, workSection);
     } else if (e.target.classList.contains('contactss')) {
         let obs = pageObserver(marker);
+        console.log(marker);
         hideSection(obs);
+
+        marker = 4;
         changePage(navigation, contactSection);
     }
 });
