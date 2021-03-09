@@ -132,15 +132,15 @@ function disableThirdSection() {
 // main functions
 skillsWrapper.style.display = 'flex';
 
-hideSection(intro)
-// hideSection(introduceMyselfWrapper);
+// hideSection(intro)
+hideSection(introduceMyselfWrapper);
 hideSection(skillsWrapper);
 hideSection(workSection);
 hideSection(contactSection);
 // hideSection(navigation);
 
-introduceMyselfWrapper.style.opacity = '1';
-// introduce();
+// introduceMyselfWrapper.style.opacity = '1';
+introduce();
 
 
 function hidePage(section, time) {
@@ -320,7 +320,7 @@ navbar.addEventListener('click', e => {
         let obs = pageObserver(marker);
         console.log(marker);
         hideSection(obs);
-        
+
         marker = 3;
         changePage(navigation, workSection);
     } else if (e.target.classList.contains('contactss')) {
