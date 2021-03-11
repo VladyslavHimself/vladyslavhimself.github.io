@@ -11,6 +11,9 @@ body {
     animation: fadeout 1s ease;
 }
 
+* {
+    cursor: none !important;
+}
 
 // NOTE Components
 
@@ -33,7 +36,10 @@ body {
 @import 'components/navigation';
 
 
+
 // general support styles
+
+
 
 .hovers {
     top: 0;

@@ -332,3 +332,12 @@ navbar.addEventListener('click', e => {
         changePage(navigation, contactSection);
     }
 });
+
+
+
+
+// cursor
+
+new kursor({
+    type: 4
+})

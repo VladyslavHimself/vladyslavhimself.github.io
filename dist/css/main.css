@@ -11,6 +11,10 @@ body {
   animation: fadeout 1s ease;
 }
 
+* {
+  cursor: none !important;
+}
+
 .wrapper {
   width: 100%;
 }
