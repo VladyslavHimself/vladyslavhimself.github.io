@@ -88,3 +88,14 @@
         opacity: 1;
     }
 }
+
+@keyframes popup {
+    from {
+
+        opacity: 0;
+        width: 400px;
+    } to {
+        width: 450px;
+        opacity: 1;
+    }
+}

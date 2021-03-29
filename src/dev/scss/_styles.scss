@@ -17,6 +17,9 @@ body {
 
 // NOTE Components
 
+// notifications part
+@import 'components/notification';
+
 // intro part
 @import 'components/intro';
 
@@ -122,5 +125,3 @@ a {
 .animated {
     animation: progress 1.2s ease;
 }
-
-

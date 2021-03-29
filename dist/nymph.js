@@ -28,6 +28,8 @@ const skillsNamesUX = ['Prototyping & Testing', 'Visual Design, Mockups, UI Elem
       skillsProgressUX = ['70%', '65%', '80%', '70%', '90%', '93%'],
       skillsHintsUX = ['Normal', 'Learning', 'Good', 'Normal', 'Good', 'Good'];
 
+const notifBtn = document.querySelector('.abstractButton'),
+      notification = document.querySelector('.notification');
 
       let marker = 1;
 
@@ -76,6 +78,7 @@ async function introduce() {
                 intro.remove();
                 setTimeout(() => {
                     introduceScene(introduceMyselfWrapper);
+                    notification.style.opacity = 1;    
                 }, 1000);
             }, 500);
         }, 1000);
@@ -110,7 +113,7 @@ function enableSecondSection() {
     introduceMyselfWrapper.style.opacity = '1'; 
 }
 
-function all() {
+function skipIntro() {
     disableFirstSection();
     enableSecondSection();
 }
@@ -124,8 +127,8 @@ function disableThirdSection() {
 }
 
 // tests
-    // introduceMyselfWrapper.style.display = 'flex';
-    // introduceMyselfWrapper.style.opacity = '1';
+    introduceMyselfWrapper.style.display = 'flex';
+    introduceMyselfWrapper.style.opacity = '1';
 
 // all();
 
@@ -140,7 +143,7 @@ hideSection(contactSection);
 // hideSection(navigation);
 
 // introduceMyselfWrapper.style.opacity = '1';
-introduce();
+
 
 
 function hidePage(section, time) {
@@ -335,9 +338,77 @@ navbar.addEventListener('click', e => {
 
 
 
+// cookies
+
+
+
+let checkLocalStorageInfo = (key) => {    
+    if (localStorage.getItem(key) === true || localStorage.getItem(key) === null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+let isFirstUserSession = checkLocalStorageInfo('showIntro');
+
+localStorage.setItem('showIntro', false);
+
+if (isFirstUserSession) {
+    notification.style.transition = '1s ease';
+    introduce();
+    
+
+} else if (!isFirstUserSession) {
+    skipIntro();
+    notification.style.opacity = 1;
+
+
+}
+
+// popup
+
+let isPopUpShown = checkLocalStorageInfo('isPopUpShownOnce');
+
+localStorage.setItem('isPopUpShownOnce', false);
+
+if (isPopUpShown === true) {
+    notification.style.display = 'none';
+    console.log('don\'t display');
+} else if (!isPopUpShown) {
+
+    // autoclose popup
+    setTimeout(() => {
+        notification.style.transition = '.8s ease';
+        notification.style.width = '0px';
+        notification.style.opacity = 0;
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 800);
+        
+    }, 3500);
+
+    // close popup
+    notification.addEventListener('click', (e) => {
+        if (e.target.classList.contains('abstractButton')) {
+            notification.style.display = 'none';
+            localStorage.setItem('isPopUpShownOnce', true)
+        }
+    });
+    console.log('display');
+}
+
+
+
+
+
+
+
+
 
 // cursor
 
 new kursor({
     type: 4
 })
+

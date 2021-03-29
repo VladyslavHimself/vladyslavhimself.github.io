@@ -121,6 +121,10 @@
             margin: 20px 0 0 0 !important;
         }
     }
+
+    .notification {
+        display: none;
+    }
 }
 
 @media(max-width: 375px) {
