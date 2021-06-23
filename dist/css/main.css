@@ -355,6 +355,89 @@ body {
   margin-top: 40px !important;
 }
 
+a:nth-child(2) .card {
+  background-color: #04682a;
+}
+a:nth-child(2) .card:hover {
+  background-color: #045824;
+}
+a:nth-child(3) .card {
+  background-color: #2a2a2c;
+}
+a:nth-child(3) .card:hover {
+  background-color: #222224;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 15px;
+  position: relative;
+  width: 300px;
+  height: 450px;
+  background-color: #bb1616;
+  cursor: pointer;
+  transition: 0.4s ease;
+  overflow: hidden;
+}
+.card:hover {
+  background-color: #951212;
+}
+.card:hover .title {
+  color: #f4f4f4;
+  transform: rotate(90deg) translate(-50%, 255%);
+}
+.card:hover .logo {
+  margin-top: 25px;
+}
+.card:hover .hint {
+  transform: translate(-20%, -135%);
+}
+
+.title {
+  transition: 0.6s ease;
+  position: absolute;
+  top: 45%;
+  left: 90%;
+  transform: rotate(90deg) translate(-50%, -75%);
+  width: 200px;
+  height: 20px;
+  text-transform: uppercase;
+  font-size: 42px;
+  text-align: center;
+}
+
+.name {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #f4f4f4;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+  transition: 0.4s ease;
+}
+.logo img {
+  width: inherit;
+  height: inherit;
+}
+
+.hint {
+  color: #ccc;
+  font-size: 24px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 106%;
+  left: 20%;
+  transition: 0.8s ease;
+  transform: translate(-20%, -75%);
+}
+
 .contact {
   width: 100%;
   height: 100vh;

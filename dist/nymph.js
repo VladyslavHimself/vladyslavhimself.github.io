@@ -398,14 +398,6 @@ if (isPopUpShown === true) {
     console.log('display');
 }
 
-
-
-
-
-
-
-
-
 // cursor
 
 new kursor({
